@@ -1,18 +1,18 @@
-import spacy
-from spacy import displacy
+from chatterbot import ChatBot
 
-nlp = spacy.load("en_core_web_sm")
 
-with open("data/wiki_us.txt", "r") as f:
-    text = f.read()
+bot = ChatBot(
+    'Math & Time Bot',
+    logic_adapters=[
+        'chatterbot.logic.MathematicalEvaluation',
+        'chatterbot.logic.TimeLogicAdapter'
+    ]
+)
 
-doc = nlp(text)
+# Print an example of getting one math based response
+response = bot.get_response('What is 4 * 9 / 2?')
+print(response)
 
-sentence1 = list(doc.sents)[0]
-
-token2 = sentence1[3]
-
-# for ent in doc.ents:
-#     print(ent.text, ent.label_)
-
-displacy.render(doc, style="ent", jupyter=True)
+# Print an example of getting one time based response
+response = bot.get_response('What time is it?')
+print(response)
