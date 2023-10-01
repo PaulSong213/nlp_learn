@@ -1,8 +1,11 @@
 {
   "atlascode.bitbucket.enabled": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
+    "editor.defaultFormatter": "ms-python.python"
   },
   "python.formatting.provider": "none",
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": [
+    "./ChatterBot"
+  ]
 }
